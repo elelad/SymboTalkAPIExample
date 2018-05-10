@@ -2,10 +2,23 @@
 console.log(jQuery);
 var c = {};
 c.data = [];
+c.lang = "en";
+c.limit = 10;
+c.repo = "all";
 
 c.searchUrl = "https://symbotalkapiv1.azurewebsites.net/search/";
 c.symbolUrl = "https://symbotalkapiv1.azurewebsites.net/symbols/";
 //c.searchUrl = "localhost:1337/search/";
+
+$(document).ready((()=>{
+    if (localStorage.getItem('sAPIlang')) c.lang = localStorage.getItem('sAPIlang');
+    if (localStorage.getItem('sAPIrepo')) c.repo = localStorage.getItem('sAPIrepo');
+    if (localStorage.getItem('sAPIlimit')) c.limit = +localStorage.getItem('sAPIlimit');
+    $('#langSelect').val(c.lang);
+    $('#symbolsSelect').val(c.repo);
+    $('#limitSelect').val(c.limit);
+
+}));
 
 $("#query").on('keyup', function (e) {
     if (e.keyCode == 13) {
@@ -13,6 +26,26 @@ $("#query").on('keyup', function (e) {
         // Do something
     }
 });
+
+$('#langSelect').on('change', ()=>{
+    c.lang = $('#langSelect').val();
+    localStorage.setItem('sAPIlang', c.lang);
+});
+
+$('#symbolsSelect').on('change', ()=>{
+    c.repo = $('#symbolsSelect').val();
+    localStorage.setItem('sAPIrepo', c.repo);
+});
+
+
+$('#limitSelect').on('change', ()=>{
+    c.limit = $('#limitSelect').val();
+    localStorage.setItem('sAPIlimit', c.limit);
+});
+
+
+
+
 
 c.search = function () {
     //$('#sResults').html()
