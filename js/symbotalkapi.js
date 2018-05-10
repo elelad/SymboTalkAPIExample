@@ -81,7 +81,7 @@ c.dataToHtml = function (data) {
     }
     else {
         for (let i = 0; i < data.length; i++) {
-            console.log("for i: " + i);
+            //console.log("for i: " + i);
             //console.log(data[i].translations[0].tName);
             let id = data[i].id;
             let name = (data[i].translations) ? (data[i].translations[0].tName) : data[i].name;
@@ -195,7 +195,7 @@ c.idToHtml = function (data) {
     let list2 = "";
     for (let i = 0; i < data.translations.length; i++) {
         lang = c.toLang(data.translations[i].tLang);
-        if (i < 10) {
+        if (i < 12) {
             list1 += `<li class="list-group-item"><strong>${lang}</strong>:  ${data.translations[i].tName}</li>`
         } else {
             list2 += `<li class="list-group-item"><strong>${lang}</strong>:  ${data.translations[i].tName}</li>`
