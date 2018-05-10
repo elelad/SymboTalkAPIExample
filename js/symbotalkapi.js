@@ -10,7 +10,7 @@ c.searchUrl = "https://symbotalkapiv1.azurewebsites.net/search/";
 c.symbolUrl = "https://symbotalkapiv1.azurewebsites.net/symbols/";
 //c.searchUrl = "localhost:1337/search/";
 
-$(document).ready((()=>{
+$(document).ready((() => {
     if (localStorage.getItem('sAPIlang')) c.lang = localStorage.getItem('sAPIlang');
     if (localStorage.getItem('sAPIrepo')) c.repo = localStorage.getItem('sAPIrepo');
     if (localStorage.getItem('sAPIlimit')) c.limit = +localStorage.getItem('sAPIlimit');
@@ -27,18 +27,18 @@ $("#query").on('keyup', function (e) {
     }
 });
 
-$('#langSelect').on('change', ()=>{
+$('#langSelect').on('change', () => {
     c.lang = $('#langSelect').val();
     localStorage.setItem('sAPIlang', c.lang);
 });
 
-$('#symbolsSelect').on('change', ()=>{
+$('#symbolsSelect').on('change', () => {
     c.repo = $('#symbolsSelect').val();
     localStorage.setItem('sAPIrepo', c.repo);
 });
 
 
-$('#limitSelect').on('change', ()=>{
+$('#limitSelect').on('change', () => {
     c.limit = $('#limitSelect').val();
     localStorage.setItem('sAPIlimit', c.limit);
 });
@@ -164,6 +164,18 @@ c.toLang = function (iso) {
             break;
         case 'ar':
             return 'Arabic'
+            break;
+        case 'fi':
+            return 'Finnish'
+            break;
+        case 'ro':
+            return 'Romanian'
+            break;
+        case 'el':
+            return 'Greek'
+            break;
+        case 'sk':
+            return 'Slovak'
             break;
         default:
             return iso;
