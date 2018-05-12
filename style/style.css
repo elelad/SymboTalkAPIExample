@@ -43,8 +43,8 @@ body{
     display: none;
     /* position: relative;
     right: 20px; */
-    background-color: white;
-    border-left-color: white; 
+    background-color: transparent;
+    /* //border-left-color: transparent;  */
 }
 
 .center{

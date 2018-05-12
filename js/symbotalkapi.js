@@ -18,6 +18,11 @@ $(document).ready((() => {
     $('#symbolsSelect').val(c.repo);
     $('#limitSelect').val(c.limit);
 
+    $.ajax({
+        url: 'https://symbotalkapiv1.azurewebsites.net/search/?name=a',
+        success: ()=>console.log('db on')
+    })
+
 }));
 
 $("#query").on('keyup', function (e) {
@@ -50,8 +55,8 @@ $('#limitSelect').on('change', () => {
 c.search = function () {
     //$('#sResults').html()
     $('#loading').show();
-    let html = "<span class='center'><i class='fas fa-spinner fa-lg fa-pulse'></i></span>";
-    $('#sResults').html(html);
+    //let html = "<span class='center'><i class='fas fa-spinner fa-lg fa-pulse'></i></span>";
+    //$('#sResults').html(html);
     let q = $('#query').val();
     let lang = $('#langSelect').val();
     console.log(lang);
@@ -205,10 +210,12 @@ c.idToHtml = function (data) {
     $('#moreModalTranslations1').html(list1);
     $('#moreModalTranslations2').html(list2);
     $('#moreModal').modal({ show: true });
+    $('#loading').hide();
 }
 
 c.more = function (id) {
     console.log(id);
+    $('#loading').show();
     $.ajax({
         url: c.symbolUrl + id,
         success: c.idToHtml
