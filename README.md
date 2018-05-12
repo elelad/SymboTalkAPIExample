@@ -1,4 +1,4 @@
-# SymboTalkAPIExample
+# SymboTalk API Example
 Working Example of SymboTalk API for AAC symbols search
 
 
