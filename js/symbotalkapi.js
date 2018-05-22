@@ -68,7 +68,8 @@ c.search = function () {
     console.log(url);
     $.ajax({
         url: url,
-        success: c.dataToHtml
+        success: c.dataToHtml,
+        error: c.dataToHtml
     })
 
 }
