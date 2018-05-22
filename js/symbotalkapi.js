@@ -76,9 +76,8 @@ c.search = function () {
 
 c.errorHendler = function (respons) {
     console.log(respons);
-    c.data = data;
     var html = "";
-    if (respons == 400){
+    if (respons.status == 400){
         html = "<span class='center'>" + respons.responseText + "</span>";
     }else {
         html = "<span class='center'>An error has occurred, please try agein later...</span>"
