@@ -20,7 +20,7 @@ $(document).ready((() => {
 
     $.ajax({
         url: 'https://symbotalkapiv1.azurewebsites.net/search/?name=a',
-        success: ()=>console.log('db on')
+        success: () => console.log('db on')
     })
 
 }));
@@ -77,9 +77,9 @@ c.search = function () {
 c.errorHendler = function (respons) {
     console.log(respons);
     var html = "";
-    if (respons.status == 400){
+    if (respons.status == 400) {
         html = "<span class='center'>" + respons.responseText + "</span>";
-    }else {
+    } else {
         html = "<span class='center'>An error has occurred, please try agein later...</span>"
     }
     $('#sResults').html(html);
@@ -194,6 +194,9 @@ c.toLang = function (iso) {
             break;
         case 'sk':
             return 'Slovak'
+            break;
+        case 'zh':
+            return 'Chinese'
             break;
         default:
             return iso;
